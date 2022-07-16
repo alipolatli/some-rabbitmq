@@ -37,7 +37,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQExchangeTypesHeader
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AddWatermarksToImages", "AddWatermarksToImages", "{E222B0F7-D1F8-44B2-B57B-A7031300B86C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQAddWatermarksToImages", "AddWatermarksToImages\RabbitMQAddWatermarksToImages\RabbitMQAddWatermarksToImages.csproj", "{F47B5ED2-0232-41B5-9BD9-516748163A2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQAddWatermarksToImages", "AddWatermarksToImages\RabbitMQAddWatermarksToImages\RabbitMQAddWatermarksToImages.csproj", "{F47B5ED2-0232-41B5-9BD9-516748163A2B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ConvertDbTableToExcel", "ConvertDbTableToExcel", "{FBDF5D6D-5A89-4BC4-B8E0-61AE9C4AABCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQConvertDbTableToExcel", "ConvertDbTableToExcel\RabbitMQConvertDbTableToExcel\RabbitMQConvertDbTableToExcel.csproj", "{71D86730-9873-4E19-A7CA-DC52009391FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQConvertDbTableToExcel.Shared", "ConvertDbTableToExcel\RabbitMQConvertDbTableToExcel.Shared\RabbitMQConvertDbTableToExcel.Shared.csproj", "{F7636E48-3CE1-4A36-889C-CCF97FC55BE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQConvertDbTableToExcel.WorkerService", "ConvertDbTableToExcel\RabbitMQConvertDbTableToExcel.WorkerService\RabbitMQConvertDbTableToExcel.WorkerService.csproj", "{D4BA2212-0111-475F-BB9B-359C6FF202DC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +97,18 @@ Global
 		{F47B5ED2-0232-41B5-9BD9-516748163A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F47B5ED2-0232-41B5-9BD9-516748163A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F47B5ED2-0232-41B5-9BD9-516748163A2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71D86730-9873-4E19-A7CA-DC52009391FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71D86730-9873-4E19-A7CA-DC52009391FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71D86730-9873-4E19-A7CA-DC52009391FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71D86730-9873-4E19-A7CA-DC52009391FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7636E48-3CE1-4A36-889C-CCF97FC55BE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7636E48-3CE1-4A36-889C-CCF97FC55BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7636E48-3CE1-4A36-889C-CCF97FC55BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7636E48-3CE1-4A36-889C-CCF97FC55BE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4BA2212-0111-475F-BB9B-359C6FF202DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4BA2212-0111-475F-BB9B-359C6FF202DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4BA2212-0111-475F-BB9B-359C6FF202DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4BA2212-0111-475F-BB9B-359C6FF202DC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,6 +129,9 @@ Global
 		{538DD59E-B3F5-4CCA-A09E-DF6C5E766652} = {A04FD94D-46D1-4512-AD28-8E1BFE3EF127}
 		{BAA717C5-3A76-499B-AED3-3B922E75AE6C} = {A04FD94D-46D1-4512-AD28-8E1BFE3EF127}
 		{F47B5ED2-0232-41B5-9BD9-516748163A2B} = {E222B0F7-D1F8-44B2-B57B-A7031300B86C}
+		{71D86730-9873-4E19-A7CA-DC52009391FC} = {FBDF5D6D-5A89-4BC4-B8E0-61AE9C4AABCA}
+		{F7636E48-3CE1-4A36-889C-CCF97FC55BE0} = {FBDF5D6D-5A89-4BC4-B8E0-61AE9C4AABCA}
+		{D4BA2212-0111-475F-BB9B-359C6FF202DC} = {FBDF5D6D-5A89-4BC4-B8E0-61AE9C4AABCA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {81053F83-6AD5-4BD3-8D23-242ADBD8894E}

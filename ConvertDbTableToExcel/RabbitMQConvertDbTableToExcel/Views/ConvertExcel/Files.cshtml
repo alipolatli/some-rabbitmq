@@ -1,0 +1,30 @@
+﻿@model List<UserFile>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">FileName</th>
+            <th scope="col">FilePath</th>
+            <th scope="col">FileStatus</th>
+            <th scope="col">CreatedDate</th>
+            <th scope="col">Download</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.Id</th>
+                <td>@item.FileName</td>
+                <td>@item.FilePath</td>
+                <td>@item.FileStatus</td>
+                <td>@item.GetCreatedDate</td>
+                <td>
+                    <a href="~/files/@item.FilePath" class="btn btn-warning @(item.FileStatus==FileStatus.Creating ? "disable": "")">Download</a>
+                    <a href="https://c2rsetup.officeapps.live.com/c2r/downloadVS.aspx?sku=community&channel=Release&version=VS2022&source=VSLandingPage&includeRecommended=true&cid=2030">Download VS</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
