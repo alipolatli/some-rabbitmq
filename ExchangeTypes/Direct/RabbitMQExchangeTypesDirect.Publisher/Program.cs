@@ -1,4 +1,4 @@
-﻿using RabbitMQ.Client;
+﻿ using RabbitMQ.Client;
 using System.Text;
 
 namespace RabbitMQExchangeTypesDirect.Publisher

@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using RabbitMQConvertDbTableToExcel.Hubs;
 using RabbitMQConvertDbTableToExcel.Models;
 
 namespace RabbitMQConvertDbTableToExcel.Controllers
@@ -9,13 +11,15 @@ namespace RabbitMQConvertDbTableToExcel.Controllers
     [ApiController]
     public class ExcelFilesController : ControllerBase
     {
+        IHubContext<MessageHub> _hubContext; 
         readonly AppDbContext _appDbContext;
         readonly ILogger<ExcelFilesController> _logger;
 
-        public ExcelFilesController(AppDbContext appDbContext, ILogger<ExcelFilesController> logger)
+        public ExcelFilesController(AppDbContext appDbContext, ILogger<ExcelFilesController> logger, IHubContext<MessageHub> hubContext)
         {
             _appDbContext = appDbContext;
             _logger = logger;
+            _hubContext = hubContext;
         }
 
         [HttpPost]
@@ -37,6 +41,8 @@ namespace RabbitMQConvertDbTableToExcel.Controllers
 
             await _appDbContext.SaveChangesAsync();
             //SignalR notification...
+
+            await _hubContext.Clients.User(userFile.UserId).SendAsync("ReceiveInfoMessage");
             return Ok();
         }
     }

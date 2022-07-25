@@ -59,9 +59,50 @@
             &copy; 2022 - RabbitMQConvertDbTableToExcel - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.7/signalr.min.js" integrity="sha512-Aijk+ipiP35gqQx1jTDzb7U4PceIAXjqSuCchQ+Wb4GTM7gAKK9f9K5aJxLxCbEIpmHB/zeYBOX/D9UqswZ6vQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.24/dist/sweetalert2.all.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <script>
+        $(document).ready(() => {
+            const connection = new signalR.HubConnectionBuilder()
+                .withUrl("/messageHub")
+                .configureLogging(signalR.LogLevel.Information)
+                .build()
+
+            start();
+            async function start() {
+                try {
+                    await connection.start();
+                    console.log("SignalR Connected.");
+                } catch (err) {
+                    console.log("hata");
+                    console.log(err);
+                    setTimeout(start, 5000);
+                }
+            };
+
+            connection.on("ReceiveInfoMessage", function() {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Excel file created succesfuly.',
+                    showConfirmButton: true,
+                    confirmButtonText:"Go To My Files",
+                    timer: 1500
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location="/ConvertExcel/Files"
+                    }
+                })
+            });
+
+        });
+
+
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

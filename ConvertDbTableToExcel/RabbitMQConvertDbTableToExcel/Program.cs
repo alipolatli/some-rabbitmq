@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using RabbitMQ.Client;
+using RabbitMQConvertDbTableToExcel.Hubs;
 using RabbitMQConvertDbTableToExcel.Models;
 using RabbitMQConvertDbTableToExcel.Services.RabbitMQServices;
 
@@ -18,6 +19,7 @@ builder.Services.AddSingleton<IRabbitMQClientService, RabbitMQClientService>();
 builder.Services.AddSingleton<IConnectionFactory>(serviceProvider => new ConnectionFactory { Uri = new Uri(builder.Configuration.GetConnectionString("RabbitMQ")) });
 builder.Services.AddSingleton<RabbitMQPublisher>();
 
+builder.Services.AddSignalR();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -36,6 +38,8 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+app.MapHub<MessageHub>("/messageHub");
 
 app.MapControllerRoute(
     name: "default",

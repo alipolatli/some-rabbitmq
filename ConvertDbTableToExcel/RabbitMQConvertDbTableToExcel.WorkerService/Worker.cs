@@ -67,6 +67,7 @@ namespace RabbitMQConvertDbTableToExcel.WorkerService
                     var response = await httpClient.PostAsync(apiUrl,multipartFormDataContent);
                     if (response.IsSuccessStatusCode)
                     {
+                        
                         _logger.LogInformation($"Excel File : {createExcelMessage.UserFileId} başarılı.");
                         _channel.BasicAck(e.DeliveryTag, false);
                     }
